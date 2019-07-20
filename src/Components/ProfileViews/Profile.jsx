@@ -18,3 +18,5 @@ export default function Profile(props) {
 Profile.propTypes = {
     rideList: PropTypes.array
 }
+
+
