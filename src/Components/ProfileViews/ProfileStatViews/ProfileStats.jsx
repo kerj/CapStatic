@@ -11,6 +11,14 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 
 const styles = makeStyles(theme => ({
+	palette: {
+		primary: {
+			main: '#00897b'
+		},
+		secondary: {
+			main: '#009688'
+		},
+	},
 	card: {
 		maxWidth: 300,
 	},
@@ -24,6 +32,9 @@ const styles = makeStyles(theme => ({
 	expandOpen: {
 		transform: 'rotate(180deg)',
 	},
+	testcolor: {
+		color: '#00897b',
+	}
 }));
 
 export default function ProfileStats() {
@@ -31,20 +42,18 @@ export default function ProfileStats() {
 	const [expanded, setExpanded] = React.useState(false);
 
 	function handleExpandClick() {
-		console.log();
-		
 		setExpanded(!expanded);
 	}
 
 	return (
-		<div>
-
+		<div className={classes.container}>
 			<Card className={classes.card}>
-				<CardContent>
-					<h4>Last Ride Stats</h4>
-				</CardContent>
+			<CardHeader
+			 title="My Ride Stats"
+			/>
 				<CardActions id='last' disableSpacing>
 					<IconButton
+					 color='primary'
 						className={clsx(classes.expand, {
 							[classes.expandOpen]: expanded,
 						})}
@@ -55,58 +64,11 @@ export default function ProfileStats() {
 					</IconButton>
 				</CardActions>
 				<Collapse in={expanded} timeout="auto" unmountOnExit>
-					<CardContent>
+					<CardContent className={classes.testcolor}>
 						<ul>
 							<li>Here is a stat</li>
 							<li>here is the next stat</li>
-						</ul>
-					</CardContent>
-				</Collapse>
-			</Card>
-			<Card className={classes.card}>
-				<CardContent>
-					<h4>Past 90 Days Stats</h4>
-				</CardContent>
-				<CardActions disableSpacing>
-					<IconButton
-						className={clsx(classes.expand, {
-							[classes.expandOpen]: expanded,
-						})}
-						onClick={handleExpandClick}
-						aria-expanded={expanded}
-					>
-						<ExpandMoreIcon />
-					</IconButton>
-				</CardActions>
-				<Collapse in={expanded} timeout="auto" unmountOnExit>
-					<CardContent>
-						<ul>
-							<li>Here is a stat</li>
-							<li>here is the next stat</li>
-						</ul>
-					</CardContent>
-				</Collapse>
-			</Card>
-			<Card className={classes.card}>
-				<CardContent>
-					<h4>All Time Stats</h4>
-				</CardContent>
-				<CardActions disableSpacing>
-					<IconButton
-						className={clsx(classes.expand, {
-							[classes.expandOpen]: expanded,
-						})}
-						onClick={handleExpandClick}
-						aria-expanded={expanded}
-					>
-						<ExpandMoreIcon />
-					</IconButton>
-				</CardActions>
-				<Collapse in={expanded} timeout="auto" unmountOnExit>
-					<CardContent>
-						<ul>
-							<li>Here is a stat</li>
-							<li>here is the next stat</li>
+							<li>All time stats</li>
 						</ul>
 					</CardContent>
 				</Collapse>
