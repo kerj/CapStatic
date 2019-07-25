@@ -1,24 +1,34 @@
-import React from 'react';
-import RideList from './RideViews/RideList';
-import PropTypes from 'prop-types';
-import { v4 } from 'uuid';
-import RideMap from './RideViews/MapViews/RideMap'
+import React, { Component } from 'react';
+import ProfileStats from './ProfileStatViews/ProfileStats';
+import RideList from './RideViews/RideList'
+import { connect } from 'react-redux';
 
-export default function Profile(props) {
-    return (
-        <div>
-            {/* {props.rideList.map((ride)=>{
-                <div key={v4()}>
 
-                </div>
-            })} */}
-            <RideMap/>
-        </div>
-    )
+export default class Profile extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            masterRideList: null,
+            riderStats: {
+                last: null,
+                ninty: null,
+                all: null
+            },
+            selectedRide: null
+        } 
+    }
+
+    render() {
+        return (
+            <div>
+                <ProfileStats/>
+                <RideList/>
+            </div>
+        )
+    }
 }
 
-Profile.propTypes = {
-    rideList: PropTypes.array
-}
+
 
 
