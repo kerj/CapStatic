@@ -28,7 +28,6 @@ export default class Profile extends Component {
             <div>
                 <ProfileStats/>
                 <RideList/>
-                <RideMap/>
             </div>
         )
     }

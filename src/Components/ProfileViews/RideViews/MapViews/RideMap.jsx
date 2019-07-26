@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 
 export class RideMap extends React.Component {
@@ -18,7 +18,7 @@ export class RideMap extends React.Component {
     return (
       <Map id="rideMap" center={position} zoom={this.state.zoom} scrollWheelZoom={true}>
         <TileLayer
-          attribution= 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+          attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
           url='https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
         />
         <Marker position={position}>
