@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ProfileStats from './ProfileStatViews/ProfileStats';
-import RideList from './RideViews/RideList'
+import RideList from './RideViews/RideList';
+import RideMap from './RideViews/MapViews/RideMap';
 import { connect } from 'react-redux';
 
 
@@ -21,11 +22,13 @@ export default class Profile extends Component {
         } 
     }
 
+
     render() {
         return (
             <div>
                 <ProfileStats/>
                 <RideList/>
+                <RideMap/>
             </div>
         )
     }
