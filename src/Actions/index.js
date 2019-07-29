@@ -1,6 +1,6 @@
 import * as types from './../Constants/ActionTypes';
 import { v4 } from 'uuid';
-import { apiKey, myId, mySecret, authCode } from './../../Config';
+import { apiKey, myId, mySecret, authCode } from './../stravaAuth';
 
 export function fetchProfile(){
    return function(dispatch) {

@@ -41,7 +41,8 @@ Profile.propTypes = {
 
 const mapStateToProps = state => {
     return {
-        masterProfile: state
+        masterRideList: state,
+        riderStats: state
     }
 }
 

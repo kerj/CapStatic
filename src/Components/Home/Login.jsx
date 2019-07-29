@@ -9,6 +9,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 import { fetchProfile } from '../../Actions';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 
 
@@ -43,8 +44,7 @@ const styles = makeStyles(theme => ({
 	}
 }));
 
-function Login() {
-	let input;
+function Login({dispatch}) {
 	const classes = styles();
 	return (
 		<Grid className={classes.container}
@@ -60,17 +60,12 @@ function Login() {
 					<CardContent id="firebaseui-auth-container">
 						<form id="loader" className={classes.form} onSubmit={e => {
 							e.preventDefault();
-							if(!input.value.trim()){
+							if(1 > 2){
 								return;
 							}
-							dispatchEvent(fetchProfile())
-							console.log(input.value);
-							input.value='';
+							dispatch(fetchProfile())
 						}}>
 							<Input
-								ref={node => {
-									input = node;
-								}}
 								placeholder='User Name'
 								className={classes.input}
 								inputProps={{
@@ -96,6 +91,10 @@ function Login() {
 		</Grid>
 	)
 }
+
+Login.propTypes = {
+	dispatch: PropTypes.func
+};
 
 export default connect()(Login);
 
