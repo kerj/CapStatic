@@ -8,6 +8,9 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 
+
+
+
 let theme = createMuiTheme({
 	palette: {
 		primary: {
@@ -39,7 +42,9 @@ const styles = makeStyles(theme => ({
 	}
 }));
 
+
 export default function Login() {
+
 	const classes = styles();
 	return (
 		<Grid className={classes.container}
@@ -52,8 +57,8 @@ export default function Login() {
 		>
 			<MuiThemeProvider theme={theme}>
 				<Card>
-					<CardContent>
-						<form className={classes.form}>
+					<CardContent id="firebaseui-auth-container">
+						<form id="loader" className={classes.form}>
 							<Input
 								placeholder='User Name'
 								className={classes.input}
