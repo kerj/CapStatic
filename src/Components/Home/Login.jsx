@@ -7,7 +7,8 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
-
+import { fetchProfile } from '../../Actions';
+import { connect } from 'react-redux';
 
 
 
@@ -42,9 +43,8 @@ const styles = makeStyles(theme => ({
 	}
 }));
 
-
-export default function Login() {
-
+function Login() {
+	let input;
 	const classes = styles();
 	return (
 		<Grid className={classes.container}
@@ -58,8 +58,19 @@ export default function Login() {
 			<MuiThemeProvider theme={theme}>
 				<Card>
 					<CardContent id="firebaseui-auth-container">
-						<form id="loader" className={classes.form}>
+						<form id="loader" className={classes.form} onSubmit={e => {
+							e.preventDefault();
+							if(!input.value.trim()){
+								return;
+							}
+							dispatchEvent(fetchProfile())
+							console.log(input.value);
+							input.value='';
+						}}>
 							<Input
+								ref={node => {
+									input = node;
+								}}
 								placeholder='User Name'
 								className={classes.input}
 								inputProps={{
@@ -85,4 +96,6 @@ export default function Login() {
 		</Grid>
 	)
 }
+
+export default connect()(Login);
 

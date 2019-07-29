@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import ProfileStats from './ProfileStatViews/ProfileStats';
 import RideList from './RideViews/RideList';
-import RideMap from './RideViews/MapViews/RideMap';
 import { connect } from 'react-redux';
-
+import PropTypes from 'prop-types';
 
 
 
@@ -37,7 +36,7 @@ class Profile extends Component {
 
 Profile.propTypes = {
     masterRideList: PropTypes.array,
-    riderStats: propTypes.object,
+    riderStats: PropTypes.object,
 }
 
 const mapStateToProps = state => {

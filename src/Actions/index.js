@@ -2,12 +2,12 @@ import * as types from './../Constants/ActionTypes';
 import { v4 } from 'uuid';
 import { apiKey, myId, mySecret, authCode } from './../../Config';
 
-export function fectchProfile(){
+export function fetchProfile(){
    return function(dispatch) {
     let localProfileId = v4();
     let URL = "https://www.strava.com/api/v3/athlete/?client_id=" + myId + "&client_secret=" + mySecret + "&code=" + authCode + "&grant_type=authorization_code";
 
-    $.ajax({
+    fetch({
         url: URL,
         method: "GET",
         headers: {
@@ -16,6 +16,7 @@ export function fectchProfile(){
         },
     }).then(function(response) {
         console.log(response);
+        //store values and pass these to the reducer to then display does this call work?
         
     })
     
