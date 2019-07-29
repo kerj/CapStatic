@@ -4,18 +4,22 @@ import { apiKey, myId, mySecret, authCode } from './../stravaAuth';
 
 export function fetchProfile(){
    return function(dispatch) {
+    console.log(myId);
+    
     let localProfileId = v4();
     let URL = "https://www.strava.com/api/v3/athlete/?client_id=" + myId + "&client_secret=" + mySecret + "&code=" + authCode + "&grant_type=authorization_code";
 
     fetch({
         url: URL,
         method: "GET",
-        headers: {
-            Authorization:
-                "Bearer "+ apiKey,
-        },
-    }).then(function(response) {
+        headers: new Headers({
+            'Authorization':
+                'Bearer '+ apiKey,
+        }),
+    }).then((response) => {
         console.log(response);
+    
+ 
         //store values and pass these to the reducer to then display does this call work?
         
     })
@@ -25,8 +29,7 @@ export function fetchProfile(){
    }
 }
 
-export const signIn = (userInput, localProfileId) => ({
+export const signIn = (localProfileId) => ({
     type: types.SIGN_IN,
-    userInput,
     profileId: localProfileId
 });
