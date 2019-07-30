@@ -1,25 +1,24 @@
 import * as types from './../Constants/ActionTypes';
 import { v4 } from 'uuid';
 import { apiKey, myId, mySecret, authCode } from './../stravaAuth';
+const axios = require('axios');
 
 export function fetchProfile(){
    return function(dispatch) {
-    console.log(myId);
     
     let localProfileId = v4();
-    let URL = "https://www.strava.com/api/v3/athlete/?client_id=" + myId + "&client_secret=" + mySecret + "&code=" + authCode + "&grant_type=authorization_code";
+    let queryUrl = "https://www.strava.com/api/v3/athlete/?client_id=" + myId + "&client_secret=" + mySecret + "&code=" + authCode + "&grant_type=authorization_code";
 
-    fetch({
-        url: URL,
-        method: "GET",
-        headers: new Headers({
-            'Authorization':
-                'Bearer '+ apiKey,
-        }),
+    axios.get(queryUrl,{
+        crossdomain: true,
+        method: 'get',
+        headers: {
+            'Authorization': 'Bearer '+ apiKey,
+        },
     }).then((response) => {
         console.log(response);
     
- 
+        
         //store values and pass these to the reducer to then display does this call work?
         
     })
