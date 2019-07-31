@@ -47,7 +47,13 @@ export function fetchRideList() {
             crossdomain: true,
             method: 'get',
             params: {
-
+                'before': '1564555884',
+                'after': '1438325484',
+                'page': '1',
+                'code': authCode,
+                'grant_type': 'authorization_code',
+                'client_id': '37306',
+                'client_secret': mySecret 
             },
             headers: {
                 'Authorization': 'Bearer ' + apiKey,
