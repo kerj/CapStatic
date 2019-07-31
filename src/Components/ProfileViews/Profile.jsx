@@ -3,7 +3,7 @@ import ProfileStats from './ProfileStatViews/ProfileStats';
 import RideList from './RideViews/RideList';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
+import RideMap from './RideViews/MapViews/RideMap';
 
 
 class Profile extends Component {
@@ -29,6 +29,7 @@ class Profile extends Component {
             <div>
                 <ProfileStats/>
                 <RideList/>
+                <RideMap/>
             </div>
         )
     }

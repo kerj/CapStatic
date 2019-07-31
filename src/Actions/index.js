@@ -7,16 +7,25 @@ export function fetchProfile(){
    return function(dispatch) {
     
     let localProfileId = v4();
-    let queryUrl = "https://www.strava.com/api/v3/athlete/?client_id=" + myId + "&client_secret=" + mySecret + "&code=" + authCode + "&grant_type=authorization_code";
+    let queryUrl = "https://www.strava.com/api/v3/athlete/";
+    let AuthRedirect = "https://www.strava.com/oauth/token";
+    const proxy = "https://testthisout.herokuapp.com/"
 
-    axios.get(queryUrl,{
+    axios.get(proxy + queryUrl,{
         crossdomain: true,
         method: 'get',
+        params: {
+            'client_id': myId,
+            'client_secret': mySecret,
+            'code': authCode,
+            'grant_type': 'authorization_code'
+        },
         headers: {
             'Authorization': 'Bearer '+ apiKey,
         },
     }).then((response) => {
-        console.log(response);
+        let profile = response.data
+        console.log(profile.city);
     
         
         //store values and pass these to the reducer to then display does this call work?
