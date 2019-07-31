@@ -36,8 +36,9 @@ class Profile extends Component {
 }
 
 Profile.propTypes = {
-    masterRideList: PropTypes.array,
+    masterRideList: PropTypes.object,
     riderStats: PropTypes.object,
+    dispatch: PropTypes.func,
 }
 
 const mapStateToProps = state => {

@@ -11,6 +11,7 @@ import { fetchProfile } from '../../Actions';
 import { fetchRideList } from '../../Actions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Route } from 'react-router-dom';
 
 
 
@@ -45,6 +46,19 @@ const styles = makeStyles(theme => ({
 	}
 }));
 
+
+const ButtonRoute = () => (
+	<Route render={({history}) => (
+		<Button
+		type='submit'
+		onClick={() => {history.push('/profile')}}
+		color='primary' variant="contained"
+		>
+		Login
+		</Button>
+	)} />
+)
+
 function Login({dispatch}) {
 	const classes = styles();
 	return (
@@ -60,10 +74,6 @@ function Login({dispatch}) {
 				<Card>
 					<CardContent id="firebaseui-auth-container">
 						<form id="loader" className={classes.form} onSubmit={e => {
-							e.preventDefault();
-							if(1 > 2){
-								return;
-							}
 							dispatch(fetchRideList())
 						}}>
 							<Input
@@ -83,7 +93,7 @@ function Login({dispatch}) {
 								}}
 							/>
 							<CardActions>
-								<Button color='primary' variant="contained" type='submit'>Login</Button>
+								<ButtonRoute></ButtonRoute>
 							</CardActions>
 						</form>
 					</CardContent>
