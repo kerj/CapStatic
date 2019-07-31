@@ -8,6 +8,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 import { fetchProfile } from '../../Actions';
+import { fetchRideList } from '../../Actions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -63,7 +64,7 @@ function Login({dispatch}) {
 							if(1 > 2){
 								return;
 							}
-							dispatch(fetchProfile())
+							dispatch(fetchRideList())
 						}}>
 							<Input
 								placeholder='User Name'
