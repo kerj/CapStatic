@@ -40,7 +40,7 @@ export function fetchProfile() {
 
 export function fetchRideList() {
     return function (dispatch) {
-        let queryUrl = "https://www.strava.com/api/v3/athlete/activites";
+        let queryUrl = "https://www.strava.com/api/v3/athlete/activities";
         const proxy = "https://testthisout.herokuapp.com/";
 
         axios.get(proxy + queryUrl, {
@@ -50,13 +50,10 @@ export function fetchRideList() {
                 'before': '1564555884',
                 'after': '1438325484',
                 'page': '1',
-                'code': authCode,
-                'grant_type': 'authorization_code',
-                'client_id': '37306',
-                'client_secret': mySecret 
+                'per_page': '30',
             },
             headers: {
-                'Authorization': 'Bearer ' + apiKey,
+                'Authorization': 'Bearer ' + authCode,
                 'accept': 'application/json' 
             },
         }).then((response) => {
@@ -71,3 +68,11 @@ export const signIn = (localProfileId) => ({
     type: types.SIGN_IN,
     profileId: localProfileId
 });
+
+
+//https://www.strava.com/api/v3/athlete/activites?before=1564555884&after=1438325484&page=1&code=c71ecf2b8c6ccc404acdbc57f12f04629b162480&grant_type=authorization_code&client_id=37306&client_secret=eaa2a51a7f73bbd6fe9d3c57e828c26d52be8767
+
+//https://www.strava.com/api/v3/athlete/activities?before=1564555884&after=1438325484&page=1&per_page=25&code=568a4d6c579489a9683356805fce3348cee862a4&grant_type=authorization_code&client_id=37306&client_secret=eaa2a51a7f73bbd6fe9d3c57e828c26d52be8767
+
+//https://www.strava.com/api/v3/athlete/activities?before=1564555884&after=1438325484&page=1&per_page=25
+//https://www.strava.com/api/v3/athlete/activities?before=1564555884&after=1438325484&page=1&per_page=25
