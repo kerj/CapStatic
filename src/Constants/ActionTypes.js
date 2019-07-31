@@ -1,5 +1,4 @@
 //Splash/Login Actions
-export const REQUEST_AUTH = "REQUEST_AUTH";
 export const SIGN_IN = "SIGN_IN";
 //Profile Actions
 export const GET_LIST = "GET_LIST";

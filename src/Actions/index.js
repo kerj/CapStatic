@@ -57,18 +57,23 @@ export function fetchRideList() {
                 'accept': 'application/json' 
             },
         }).then((response) => {
-            let masterRideList = response.data
-            // dispatch(makeMasterList(masterRideList));
-            let polyline = masterRideList[0].map['summary_polyline'];
-            let name = masterRideList[0].name;
-            let id = masterRideList[0].id;
-            let distance = masterRideList[0].distance;
-            console.log(masterRideList);
+            let rideList = response.data
+            dispatch(makeMasterList(rideList));
+            let polyline = rideList[0].map['summary_polyline'];
+            let name = rideList[0].name;
+            let id = rideList[0].id;
+            let distance = rideList[0].distance;
+            console.log(rideList);
             
-            dispatch(makeMaps(polyline, name, id, distance))
+            // dispatch(makeMaps(polyline, name, id, distance))
         })
     }
 }
+
+export const makeMasterList = (rideList) => ({
+    type: types.GET_LIST,
+    rideList
+})
 
 export const makeMaps = (polyline, name, id, distance) => ({
     type: types.MAKE_MAP,
