@@ -83,6 +83,11 @@ export const makeMaps = (polyline, name, id, distance) => ({
     distance
 });
 
+// export const changeMap = (currentMapId) => ({
+//     type: types.CHANGE_MAP,
+//     currentMapId
+// });
+
 export const signIn = (localProfileId) => ({
     type: types.SIGN_IN,
     profileId: localProfileId

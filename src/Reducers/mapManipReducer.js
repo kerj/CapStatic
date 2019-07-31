@@ -23,15 +23,9 @@ const mapManipReducer = (state = initialState.masterRideList = {}, action) => {
             return newMapByIdStateSlice;
         case types.GET_LIST:
             masterRideList = Object.keys(action.rideList).map(r => action.rideList[r]);
-            //     console.log(action.rideList.length);
-            // action.rideList.map((ride)=>{
-            //     masterRideList = Object.assign({}, state, {
-            //         ride
-            //     });
-            // })
-            console.log(masterRideList);
-            
             return masterRideList;
+        case types.CHANGE_MAP:
+            return action.newMapByIdStateSlice;
         default:
             return state;
 

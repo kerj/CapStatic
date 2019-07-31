@@ -16,6 +16,7 @@ class Profile extends Component {
     }
 
     componentDidMount() {
+        
         //redirect to gain auth from strava
         //https://www.strava.com/oauth/authorize?client_id=37306&response_type=code&redirect_uri=http://developers.strava.com&approval_prompt=force
         //client_id=37306 needs to be retrieved from strava
