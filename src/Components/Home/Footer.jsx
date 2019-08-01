@@ -2,7 +2,8 @@ import React from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 import { createMuiTheme, responsiveFontSizes, MuiThemeProvider } from '@material-ui/core/styles';
-import About from './About'
+import About from './About';
+import BikeSplash from './bikeSplash.jpg';
 
 let theme = createMuiTheme({
 	palette: {
@@ -12,7 +13,7 @@ let theme = createMuiTheme({
 		secondary: {
 			main: '#009688'
 		},
-	},
+    },
 })
 theme = responsiveFontSizes(theme);
 
@@ -35,6 +36,7 @@ export default function Footer() {
             <Button color='primary' onClick={toggleFooter('bottom', true)}>More Info</Button>
             <Drawer anchor="bottom" open={state.bottom} onClose={toggleFooter('bottom', false)}>
                 <About/>
+                <img class='splashimg' src={BikeSplash} alt='DualBikes'/>
             </Drawer>
         </MuiThemeProvider>
     )

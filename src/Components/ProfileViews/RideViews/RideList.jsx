@@ -45,6 +45,8 @@ const styles = makeStyles(theme => ({
 
 
 function RideList(props) {
+	console.log(props);
+	
 	const classes = styles();
 	const [expanded, setExpanded] = React.useState(false);
 
@@ -53,16 +55,11 @@ function RideList(props) {
 	}
 
 	return (
+		// <div>
+		// 	<h1>{props.masterRideList[0].name}</h1>
+		// </div>
 		<div className={classes.container}>
-			{Object.keys(this.props.masterRideList).map((rideId) =>{
-				let ride = this.props.materRideList[rideId];
-				return <Ride 
-				Name={ride.Name}
-				Distance={ride.Distance}
-				key={rideId}
-				/>
-			})}
-			{/* <Card className={classes.card}>
+			<Card className={classes.card}>
 				<CardHeader
 					title="My Rides"
 				/>
@@ -81,11 +78,18 @@ function RideList(props) {
 				<Collapse in={expanded} timeout="auto" unmountOnExit>
 					<CardContent className={classes.testcolor}>
 						<ul>
-							<li>This is a ride</li>
+							{Object.keys(props.masterRideList).map((rideId) => {
+							let ride = props.masterRideList[rideId];
+							return <Ride 
+							Name={ride.name}
+							Distance={ride.distance}
+							key={rideId}
+							/>
+							})}
 						</ul>
 					</CardContent>
 				</Collapse>
-			</Card> */}
+			</Card>
 		</div>
 	);
 }

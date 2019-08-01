@@ -2,12 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+
+
 function Ride(props) {
+    function showThisMap() {
+        alert('This is still in the works!')
+    }
     return (
         <div>
             <h3>{props.Name}</h3>
             <h4>{props.Distance}</h4>
-            <button>Click to view Map</button>
+            <button onClick={()=> showThisMap()}>Click to view Map</button>
         </div>
     )
 }
