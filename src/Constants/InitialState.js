@@ -1,7 +1,3 @@
-const mapList = {
-    1: 'longString'
-};
-
 export const initialState = {
     currentMapId: 1,
     masterRideList: {
@@ -10,8 +6,7 @@ export const initialState = {
             distance: '100km',
             polyline: 'long ass string',
             id: 'number',
-            mapArray: mapList[1],
-            arrayPosition: 0
+            displayMap: false
         }
     },
 };

@@ -4,18 +4,19 @@ import RideList from './RideViews/RideList';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import RideMap from './RideViews/MapViews/RideMap';
-
+import { Switch, Route, withRouter } from 'react-router-dom';
 
 class Profile extends Component {
-   
-    constructor(props){
+
+    constructor(props) {
         super(props);
         this.state = {
             selectedProfile: null
-        }; 
+        };
     }
 
     componentDidMount() {
+        console.log(this.props);
         
         //redirect to gain auth from strava
         //https://www.strava.com/oauth/authorize?client_id=37306&response_type=code&redirect_uri=http://developers.strava.com&approval_prompt=force
@@ -24,28 +25,33 @@ class Profile extends Component {
 
     }
 
+    componentWillUnmount(){
+        console.log(this.state);
+        
+    }
 
     render() {
-        return (
-            <div>
-                <ProfileStats/>
-                <RideList/>
-                <RideMap/>
-            </div>
-        )
+       console.log(this.state);
+       
+            return (
+                <div>
+                    <RideList masterRideList={this.props.masterRideList}/>
+                    <ProfileStats riderStats={this.props.riderStats}/> 
+                    <RideMap />
+                </div>
+            )
+        
     }
 }
 
 Profile.propTypes = {
-    masterRideList: PropTypes.object,
+    masterRideList: PropTypes.object.isRequired,
     riderStats: PropTypes.object,
-    dispatch: PropTypes.func,
 }
 
 const mapStateToProps = state => {
     return {
-        masterRideList: state,
-        riderStats: state
+        ProfileState: state,
     }
 }
 

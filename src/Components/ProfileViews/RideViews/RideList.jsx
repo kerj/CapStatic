@@ -8,9 +8,11 @@ import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { fetchRideList } from '../../../Actions';
+import { fetchRideList, makeMap } from '../../../Actions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Ride from './Ride';
+
 
 
 const styles = makeStyles(theme => ({
@@ -40,7 +42,9 @@ const styles = makeStyles(theme => ({
 	}
 }));
 
-function RideList() {
+
+
+function RideList(props) {
 	const classes = styles();
 	const [expanded, setExpanded] = React.useState(false);
 
@@ -50,13 +54,21 @@ function RideList() {
 
 	return (
 		<div className={classes.container}>
-			<Card className={classes.card}>
-			<CardHeader
-			 title="My Rides"
-			/>
+			{Object.keys(this.props.masterRideList).map((rideId) =>{
+				let ride = this.props.materRideList[rideId];
+				return <Ride 
+				Name={ride.Name}
+				Distance={ride.Distance}
+				key={rideId}
+				/>
+			})}
+			{/* <Card className={classes.card}>
+				<CardHeader
+					title="My Rides"
+				/>
 				<CardActions id='last' disableSpacing>
 					<IconButton
-					 color='primary'
+						color='primary'
 						className={clsx(classes.expand, {
 							[classes.expandOpen]: expanded,
 						})}
@@ -69,21 +81,26 @@ function RideList() {
 				<Collapse in={expanded} timeout="auto" unmountOnExit>
 					<CardContent className={classes.testcolor}>
 						<ul>
-							<li>Here is a stat</li>
-							<li>here is the next stat</li>
-							<li>All time stats</li>
+							<li>This is a ride</li>
 						</ul>
 					</CardContent>
 				</Collapse>
-			</Card>
+			</Card> */}
 		</div>
 	);
 }
 
-fetchRideList.propTypes = {
-
+RideList.propTypes = {
+	masterRideList: PropTypes.object,
 	dispatch: PropTypes.func
 }
 
-export default connect()(RideList);
+const mapStateToProps = state => {
+	return {
+		masterRideList: state.masterRideList
+	};
+};
+
+export default connect(mapStateToProps)(RideList);
+
 

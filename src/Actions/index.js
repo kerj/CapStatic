@@ -58,12 +58,11 @@ export function fetchRideList() {
             },
         }).then((response) => {
             let rideList = response.data
-            dispatch(makeMasterList(rideList));
             let polyline = rideList[0].map['summary_polyline'];
             let name = rideList[0].name;
             let id = rideList[0].id;
             let distance = rideList[0].distance;
-            console.log(rideList);
+            dispatch(makeMasterList(rideList));
             
             // dispatch(makeMaps(polyline, name, id, distance))
         })
@@ -75,7 +74,7 @@ export const makeMasterList = (rideList) => ({
     rideList
 })
 
-export const makeMaps = (polyline, name, id, distance) => ({
+export const makeMap = (polyline, name, id, distance) => ({
     type: types.MAKE_MAP,
     polyline,
     name,

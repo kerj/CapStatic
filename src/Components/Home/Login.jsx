@@ -47,9 +47,8 @@ const styles = makeStyles(theme => ({
 
 
 const ButtonRoute = () => (
-	<Route render={({history}) => (
+	<Route render={({history, dispatch}) => (
 		<Button
-		type='submit'
 		onClick={() => {history.push('/profile')}}
 		color='primary' variant="contained"
 		>
@@ -72,10 +71,7 @@ function Login({dispatch}) {
 			<MuiThemeProvider theme={theme}>
 				<Card>
 					<CardContent id="firebaseui-auth-container">
-						<form id="loader" className={classes.form} onSubmit={e => {
-							e.preventDefault()
-							dispatch(fetchRideList())
-						}}>
+						<form id="loader" className={classes.form}>
 							<Input
 								placeholder='User Name'
 								className={classes.input}
@@ -92,7 +88,7 @@ function Login({dispatch}) {
 								}}
 							/>
 							<CardActions>
-								<ButtonRoute></ButtonRoute>
+								<ButtonRoute onClick={dispatch(fetchRideList())}></ButtonRoute>
 							</CardActions>
 						</form>
 					</CardContent>
