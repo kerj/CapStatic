@@ -2,18 +2,18 @@ import * as types from './../Constants/ActionTypes';
 import { v4 } from 'uuid';
 import { apiKey, myId, mySecret, authCode } from './../stravaAuth';
 import constants from './../Constants';
-import firebase from 'firebase';
-const { firebaseConfig } = constants;
+import Firebase from 'firebase';
+import firebaseConfig from './../Constants/firebaseConfig';
 const axios = require('axios');
 
 //create instance of firebase
-firebase.initializeApp(firebaseConfig);
-const rideList = firebase.database().ref('rideList');
+Firebase.initializeApp(firebaseConfig);
+const rideList = Firebase.database().ref('rideList');
 
 
 //persist API data in firebase
 function addRides(polyline, rideName, stravaId, distance){
-    return () => rideList.push({
+        rideList.push({
         Polyline: polyline,
         RideName: rideName,
         StravaId: stravaId,
@@ -82,7 +82,9 @@ export function fetchRideList() {
                 let rideName = ride.name;
                 let stravaId = ride.id;
                 let distance = ride.distance;
-                addRides(polyline, rideName, stravaId,distance);
+                // addRides(polyline, rideName, stravaId,distance);
+                console.log(ride);
+                
             });
             dispatch(makeMasterList(rideList));
             //persist list in firebase

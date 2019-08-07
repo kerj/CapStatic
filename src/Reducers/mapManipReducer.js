@@ -1,7 +1,7 @@
 import constants from './../Constants';
 const { c } = constants;
 
-const mapManipReducer = (state = masterRideList = {}, action) => {
+const mapManipReducer = (state = {}, action) => {
     let newRideByEntry;
     let newMapByIdStateSlice;
     let masterRideList;
