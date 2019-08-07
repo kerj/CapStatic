@@ -11,6 +11,8 @@ import { fetchProfile, fetchRideList } from '../../Actions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
+import constants from './../../Constants';
+const { c } = constants;
 
 
 

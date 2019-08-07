@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import mapManipReducer from './mapManipReducer';
-import profileManipReducer from './profileManipRuducer';
+import profileManipReducer from './profileManipReducer';
 
 const rootReducer = combineReducers({
     masterRideList: mapManipReducer,

@@ -4,7 +4,8 @@ import RideList from './RideViews/RideList';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import RideMap from './RideViews/MapViews/RideMap';
-import { Switch, Route, withRouter } from 'react-router-dom';
+import constants from  './../../Constants';
+const { c } = constants;
 
 class Profile extends Component {
 

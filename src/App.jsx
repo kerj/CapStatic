@@ -4,6 +4,7 @@ import Splash from './Components/Home/Splash';
 import Profile from './Components/ProfileViews/Profile';
 import { Route, Switch } from 'react-router-dom';
 
+
 function App() {
   return (
     <div>

@@ -12,6 +12,8 @@ import { fetchRideList, makeMap } from '../../../Actions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Ride from './Ride';
+import constants from './../../../Constants';
+const { c } = constants;
 
 
 
