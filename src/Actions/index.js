@@ -77,15 +77,15 @@ export function fetchRideList() {
             },
         }).then((response) => {
             let rideList = response.data
-            rideList.forEach((ride) => {
-                let polyline = ride.map['summary_polyline'];
-                let rideName = ride.name;
-                let stravaId = ride.id;
-                let distance = ride.distance;
-                // addRides(polyline, rideName, stravaId,distance);
-                console.log(ride);
+            // rideList.forEach((ride) => {
+            //     let polyline = ride.map['summary_polyline'];
+            //     let rideName = ride.name;
+            //     let stravaId = ride.id;
+            //     let distance = ride.distance;
+            //     // addRides(polyline, rideName, stravaId,distance);
+            //     console.log(ride);
                 
-            });
+            // });
             dispatch(makeMasterList(rideList));
             //persist list in firebase
 
